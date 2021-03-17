@@ -68,9 +68,3 @@ class GetLyrics():
                     print(f"Retrieved track {i+1} lyrics!")
             song_lyrics.append(lyrics)
         return song_lyrics
-
-
-
-
-
-# !curl -X POST -u "apikey:GG5DpEhm9L6b8XTL9MVtU7gkpQjyvadE1j1g27FtmkvD" --header "Content-Type: application/json" --data-binary @./tone.json "https://api.us-south.tone-analyzer.watson.cloud.ibm.com/instances/8384e3d7-7b9e-43fa-a26d-a4d75c04a080/v3/tone?version=2017-09-21&sentences=false"

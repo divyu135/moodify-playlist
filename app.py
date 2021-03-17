@@ -13,7 +13,7 @@ CORS(app)
 def say_hello_world():
     return {'result': "Hello, welcome to my world"}
 
-@app.route("/lyrics")
+@app.route("/lyrics",methods=['GET', 'POST'])
 def display_lyrics():
     songs = GetLyrics(genius_api)
     song_lyrics = songs.get_lyrics(["old town road"],["Lil Nas X"]) 
