@@ -19,4 +19,12 @@ Still in Progress
 
 ## Snapshots
 
+Front-end
+
+![alt Backend](https://raw.githubusercontent.com/divyu135/moodify-playlist/main/images/frontend1.gif)
+
+
+Back-end
+
+![alt Backend](https://raw.githubusercontent.com/divyu135/moodify-playlist/main/images/backend1.gif)
 
