@@ -8,10 +8,10 @@ Music can evoke powerful emotional reponses such as chills and thrills in listen
 
 ## Technology Stack
 
-Front-end : ReactJS, Material UI
-Back-end: Python, Flask
-Database: MongoDB, MySQL
-APIs: Genius, IBM Watson 
+ Front-end : ReactJS, Material UI  
+ Back-end: Python, Flask  
+ Database: MongoDB, MySQL  
+ APIs: Genius, IBM Watson 
 
 ## Development
 
