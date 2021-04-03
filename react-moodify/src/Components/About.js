@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Container from '@material-ui/core/Container';
 
 class About extends Component {
   render() {
@@ -13,15 +14,15 @@ class About extends Component {
       var zip = this.props.data.address.zip;
       var phone= this.props.data.phone;
       var email = this.props.data.email;
-      var resumeDownload = this.props.data.resumedownload;
     }
 
     return (
-       <div>
+      <div>
       <section id="about">
+      <Container maxWidth="lg">
       <div className="row">
          <div className="three columns">
-         <h2>About US</h2>
+         <h2>About Project</h2>
          </div>
       </div>
       <br />
@@ -33,22 +34,12 @@ class About extends Component {
             <img className="profile-pic"  src={profilepic} alt="Nordic Giant Profile Pic" />
             <p>{bio}</p>      
          </div>
-         <div className="three columns">
-            <img className="profile-pic"  src={profilepic} alt="Nordic Giant Profile Pic" />
-            <p>{bio}</p>      
-         </div>
-         <div className="three columns">
-            <img className="profile-pic"  src={profilepic} alt="Nordic Giant Profile Pic" />
-            <p>{bio}</p>      
-         </div>
-         <div className="three columns">
-            <img className="profile-pic"  src={profilepic} alt="Nordic Giant Profile Pic" />
-            <p>{bio}</p>      
-         </div>
       </div>
+   </Container>
    </section>
 
    <section id="contact">
+   <Container maxWidth="lg">
       <div className="row">
          <div className="three columns">
          <h2>Contact Details</h2>
@@ -66,6 +57,7 @@ class About extends Component {
                      <span>{email}</span>
 					   </p>
       </div>
+   </Container>
    </section>
    </div>
     );
