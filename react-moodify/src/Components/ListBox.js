@@ -17,12 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ListBox = props => {
-
-  const buttonClicked = (artId) => (e) => {
-    e.preventDefault();
-    props.clicked(artId);
-  }    
+const ListBox = props => {  
 
     const classes = useStyles();
 

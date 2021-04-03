@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import ParticlesBg from "particles-bg";
 import ListBox from './ListBox';
 import '../App.css';
+// import '../form.css';
 
 const Search = () => {
   const [search, setSearch] = useState('');
@@ -43,7 +44,7 @@ const Search = () => {
 
           <ul id="nav" className="nav">
             <li><a  href="/home">Home</a></li>
-            <li className="current"><a className="smoothscroll" href="#">Search</a></li>
+            <li className="current"><a className="smoothscroll" href="/search">Search</a></li>
             {/* <li><a className="smoothscroll" href="#about">Contact</a></li> */}
           </ul>
         </nav>
@@ -53,8 +54,9 @@ const Search = () => {
 
           <div className="banner-text">
             {/* <h1 className="responsive-headline"> Moodify: Lets Moodify Your Playlist</h1> */}
-            <h3>Search a song and we will find the mood based on that song for you. Then we will create playlist
-            based on the found mood.</h3>
+            <h3>Search and select a song and the app will create a playlist with similar 
+            songs based on search result</h3>
+
             <hr />
 
             <div style={{ display: "flex", justifyContent: "center" }}>
@@ -62,7 +64,7 @@ const Search = () => {
                 type="text"
                 name="search_text"
                 className="banner-text"
-                style={{ width: "50%" }}
+                style={{ height:"48px", width: "50%"}}
                 value={search}
                 onChange={handleSearchChange}
                 onKeyPress={event => {
@@ -72,7 +74,7 @@ const Search = () => {
                 }}
               />
             </div>
-            <button className="button btn github-btn" onClick={handleSearch}>Search</button>
+            <button style={{marginTop:"18px"}} className="button btn github-btn" onClick={handleSearch}>Search</button>
           </div>
         </div>
       </header>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactGA from 'react-ga';
 import $ from 'jquery';
 import './App.css';
 import Header from './Components/Header';
@@ -12,12 +11,9 @@ class Home extends Component {
     super(props);
     this.state = {
       foo: 'bar',
-      resumeData: {}
+      resumeData: {},
+      sstate:{}
     };
-
-    ReactGA.initialize('UA-110570651-1');
-    ReactGA.pageview(window.location.pathname);
-
   }
 
   getResumeData(){
@@ -37,12 +33,19 @@ class Home extends Component {
 
   componentDidMount(){
     this.getResumeData();
+    if (this.props.location.state) {
+      this.setState({sstate:this.props.location.state})
+    }
+    else {
+      this.setState({sstate:{authenticated:false,username:''}})
+    }
   }
 
   render() {
+    
     return (
       <div className="App">
-        <Header data={this.state.resumeData.main}/>
+        <Header data={this.state.sstate} />
         <About data={this.state.resumeData.main}/>
         <Footer data={this.state.resumeData.main}/>
       </div>

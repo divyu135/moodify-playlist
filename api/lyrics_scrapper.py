@@ -1,14 +1,47 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+from decouple import config
 
+def scrape_lyrics_2(url):
+    page = requests.get(url)
+    html = BeautifulSoup(page.text, 'html.parser')
+#         print(html)
+    lyrics1 = html.find("div", class_="lyrics")
+    lyrics2 = html.find("div", class_="Lyrics__Container-sc-1ynbvzw-2 jgQsqn")
+    if lyrics1:
+        lyrics = lyrics1.get_text()
+    elif lyrics2:
+        lyrics = lyrics2.get_text()
+    elif lyrics1 == lyrics2 == None:
+        lyrics = None
+    return lyrics
 
 class GetLyrics():
     
-    def __init__(self,genius_key):
-        self.genius_key = genius_key
-    
+    def __init__(self):
+        self.genius_key = config('genius_api')
+
+    def get_song_info_by_id(self, song_id):
+        base_url = 'https://api.genius.com'
+        headers = {'Authorization': 'Bearer ' + self.genius_key}
+        song_url = base_url + '/songs/' + str(song_id)
+        # data = {'q': track_name + ' ' + track_artist}
+        response = requests.get(song_url, headers=headers)
+        song =response.json()["response"]["song"]
+
+        song_details = {
+                "song_id" : song["id"],
+                "url" : song["url"],
+                "title" : song["title"],
+                "full_title" : song["full_title"],
+                "media" : song["media"],
+                "artist" : song["primary_artist"]["name"],
+                "thumbnail" : song["song_art_image_thumbnail_url"]
+        }
         
+        return song_details
+
     def request_song_info(self, track_name, track_artist):
         self.track_name = track_name
         self.track_artist = track_artist

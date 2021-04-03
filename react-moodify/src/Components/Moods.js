@@ -1,37 +1,9 @@
 import React, {useState} from 'react';
 import ParticlesBg from "particles-bg";
-import ListBox from './ListBox';
+import LineGrid from './LineGrid';
 import '../App.css';
 
 const Moods = () => {
-  const [search, setSearch] = useState('');
-  const [listOfResults, setResults] = useState([]);
-
-
-  const handleSearch = e => {
-    // e.preventDefault();
-    fetch('http://localhost:5000/search', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        search_text: search
-      })
-    })
-      .then(response => response.json())
-      .then(json => {
-        setResults(json.response.hits)
-        // console.log(listOfResults)
-      })
-    //   .catch(error => {
-    //     this.props.onLoginError();
-    //   });
-  };
-
-  const handleSearchChange = e => {
-    setSearch(e.target.value)
-  };
 
   return (
     <React.Fragment>
@@ -50,33 +22,16 @@ const Moods = () => {
 
 
         <div className="row banner">
-
           <div className="banner-text">
             {/* <h1 className="responsive-headline"> Moodify: Lets Moodify Your Playlist</h1> */}
-            <h3>Select any one mood from below and we will create playlist
-            based on the mood.</h3>
+            <h1 className="responsive-headline"> How are you feeling today?</h1>
+            <h3>The app will create a playlist with similar songs based on your selection</h3>
             <hr />
-
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <input
-                type="text"
-                name="search_text"
-                className="banner-text"
-                style={{ width: "50%" }}
-                value={search}
-                onChange={handleSearchChange}
-                onKeyPress={event => {
-                  if (event.key === 'Enter') {
-                    handleSearch()
-                  }
-                }}
-              />
-            </div>
-            <button className="button btn github-btn" onClick={handleSearch}>Search</button>
+            <LineGrid />
           </div>
         </div>
       </header>
-      <ListBox hits={listOfResults} />
+      {/* <ListBox hits={listOfResults} /> */}
     </React.Fragment>
   );
 }
