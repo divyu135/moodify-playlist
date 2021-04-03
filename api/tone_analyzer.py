@@ -19,6 +19,6 @@ def get_moods(text):
         {'text': text},
         content_type='application/json'
     ).get_result()
-    print(json.dumps(tone_analysis["document_tone"], indent=2))
+    # print(json.dumps(tone_analysis["document_tone"], indent=2))
 
     return tone_analysis["document_tone"]
